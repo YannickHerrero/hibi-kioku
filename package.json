@@ -15,11 +15,18 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.100.10",
+    "@tanstack/react-query-devtools": "^5.100.10",
+    "@tanstack/react-router": "^1.169.2",
+    "hibi-client": "file:../hibi/packages/api-client",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "zod": "4.4.3"
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.14",
+    "@tanstack/react-router-devtools": "^1.166.13",
+    "@tanstack/router-plugin": "^1.167.35",
     "@types/react": "~19.2.0",
     "@types/react-dom": "~19.2.0",
     "@vitejs/plugin-react": "^5.0.0",
