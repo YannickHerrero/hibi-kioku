@@ -1,0 +1,17 @@
+{
+  "name": "Hibi Kioku",
+  "short_name": "Kioku",
+  "description": "Review your due cards and browse your library from the web.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4ede0",
+  "theme_color": "#f4ede0",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
+    }
+  ]
+}
