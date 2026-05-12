@@ -3,6 +3,7 @@ import { RouterProvider } from "@tanstack/react-router";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { queryClient, router } from "./router.ts";
+import "./styles/index.css";
 
 const root = document.getElementById("root");
 if (!root) throw new Error("missing #root element");
