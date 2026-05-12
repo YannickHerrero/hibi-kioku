@@ -1,0 +1,73 @@
+.rb-group {
+  display: flex;
+  width: 100%;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-inline-size: auto;
+}
+
+.rb {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 18px 12px;
+  border: 1px solid var(--ink);
+  border-left: none;
+  background: transparent;
+  font-family: "Geist Mono", monospace;
+  font-size: var(--t-mono-xs);
+  letter-spacing: var(--track-mono-wide);
+  text-transform: uppercase;
+  color: var(--ink);
+  cursor: pointer;
+  transition:
+    background 120ms ease,
+    color 120ms ease;
+}
+
+.rb:first-child {
+  border-left: 1px solid var(--ink);
+}
+
+.rb:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.rb.is-again {
+  color: var(--accent);
+}
+
+.rb.is-good {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+.rb.is-other:hover:not(:disabled) {
+  background: var(--muted);
+}
+
+.rb.is-again:hover:not(:disabled) {
+  background: var(--accent-soft);
+  color: var(--paper);
+}
+
+.rb.is-good:hover:not(:disabled) {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.rb-shortcut {
+  font-size: var(--t-mono-xxs);
+  color: var(--ink-faint);
+  letter-spacing: var(--track-mono);
+}
+
+.rb.is-good .rb-shortcut {
+  color: var(--paper);
+  opacity: 0.6;
+}
