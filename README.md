@@ -34,6 +34,33 @@ Environment variables (Vite reads `VITE_*` from `.env`):
 
 Sign in by pasting a Hibi API key into Settings (generated in the [Hibi portal](https://hibi.app)). The key is stored in `localStorage`.
 
+## Routes
+
+| Route          | Purpose                                                         |
+| -------------- | --------------------------------------------------------------- |
+| `/`            | Landing — due-card count + jump-to-review                       |
+| `/review`      | Daily review session (1/2/3/4 to rate, space to reveal)         |
+| `/library`     | Browse cards (search `?q=`, tag chips, sort, infinite scroll)   |
+| `/library/:id` | Card detail (focus word, kanji, audio, image, tags)             |
+| `/stats`       | Yearly heatmap, retention, daily counts                         |
+| `/settings`    | Theme picker (5 Torakaa variants), API key paste/clear          |
+
+## Keyboard shortcuts (Review)
+
+| Key             | Action          |
+| --------------- | --------------- |
+| `space`         | Reveal answer   |
+| `1`             | Again (lapse)   |
+| `2`             | Hard            |
+| `3`             | Good            |
+| `4`             | Easy            |
+
+## Deploying to Vercel
+
+`vercel.json` sets up SPA rewrites so deep links work. The bundle is a static site, no edge functions needed.
+
+> **Before the first deploy**, switch the `hibi-client` dependency from the local `file:` link to a published version (`^0.4.0` once published). Vercel cannot install relative-path dependencies.
+
 ## Conventions
 
 See [`CLAUDE.md`](./CLAUDE.md) for stack details, layout, and contribution conventions.
