@@ -1,0 +1,43 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+}
+
+.field-label {
+  font-family: "Geist Mono", monospace;
+  font-size: var(--t-mono-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--track-mono-wide);
+  color: var(--ink);
+}
+
+.field-input {
+  background: var(--paper-alt);
+  color: var(--ink);
+  border: 1px solid var(--rule-soft);
+  border-radius: var(--r-0);
+  padding: 10px 12px;
+  font-family: "Geist", system-ui, sans-serif;
+  font-size: var(--t-body-sm);
+  transition: border-color 120ms ease;
+}
+
+.field-input:focus {
+  outline: none;
+  border-color: var(--ink);
+}
+
+.field-hint {
+  font-family: "Geist Mono", monospace;
+  font-size: var(--t-mono-sm);
+  color: var(--ink-soft);
+  letter-spacing: var(--track-mono);
+}
+
+.field-error {
+  font-family: "Geist Mono", monospace;
+  font-size: var(--t-mono-sm);
+  color: var(--accent);
+  letter-spacing: var(--track-mono);
+}

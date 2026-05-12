@@ -71,6 +71,11 @@
   text-transform: uppercase;
   color: var(--ink);
 }
+.label .num {
+  color: var(--ink-soft);
+  margin-right: 10px;
+  font-weight: 500;
+}
 .meta {
   font-family: "Geist Mono", monospace;
   font-size: var(--t-mono-sm);
