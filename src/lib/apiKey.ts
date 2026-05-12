@@ -1,3 +1,5 @@
+import { redirect } from "@tanstack/react-router";
+
 const STORAGE_KEY = "kioku-api-key";
 
 export function getApiKey(): string | null {
@@ -15,4 +17,15 @@ export function setApiKey(key: string): void {
 
 export function clearApiKey(): void {
   localStorage.removeItem(STORAGE_KEY);
+}
+
+// Use in a route's `beforeLoad`: redirects to /settings if there is no
+// stored key, otherwise returns it. Throws are caught by TanStack
+// Router and turned into a redirect navigation.
+export function requireApiKey(): string {
+  const key = getApiKey();
+  if (!key) {
+    throw redirect({ to: "/settings" });
+  }
+  return key;
 }
