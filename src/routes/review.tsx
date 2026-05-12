@@ -1,10 +1,11 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import type { ReviewRating } from "hibi-client";
-import { useState } from "react";
+import type { Card, ReviewRating } from "hibi-client";
+import { useCallback, useState } from "react";
 import { SentenceCard } from "../components/design-system/SentenceCard.tsx";
 import { requireApiKey } from "../lib/apiKey.ts";
 import { getHibiClient } from "../lib/hibiClient.ts";
+import { useKeyboardShortcut } from "../lib/keyboard.ts";
 import { dueCardsQueryOptions } from "../lib/queries.ts";
 import "./review.css";
 
@@ -70,24 +71,76 @@ function ReviewRoute() {
   };
 
   return (
+    <ReviewSession
+      total={items.length}
+      index={index}
+      revealed={revealed}
+      onReveal={() => setRevealed(true)}
+      onRate={handleRate}
+      submitting={submit.isPending}
+      card={item.card}
+    />
+  );
+}
+
+interface SessionProps {
+  total: number;
+  index: number;
+  revealed: boolean;
+  onReveal: () => void;
+  onRate: (r: ReviewRating) => void;
+  submitting: boolean;
+  card: Card;
+}
+
+function ReviewSession({
+  total,
+  index,
+  revealed,
+  onReveal,
+  onRate,
+  submitting,
+  card,
+}: SessionProps) {
+  const onShortcut = useCallback(
+    (event: KeyboardEvent) => {
+      if (event.key === " " || event.key === "Spacebar") {
+        if (!revealed) {
+          event.preventDefault();
+          onReveal();
+        }
+        return;
+      }
+      if (!revealed) return;
+      const r = Number(event.key);
+      if (r >= 1 && r <= 4) {
+        event.preventDefault();
+        onRate(r as ReviewRating);
+      }
+    },
+    [revealed, onReveal, onRate],
+  );
+  useKeyboardShortcut([" ", "Spacebar", "1", "2", "3", "4"], onShortcut);
+
+  return (
     <main className="review-page">
       <div className="review-meta">
         <span className="meta">
-          {index + 1} / {items.length}
+          {index + 1} / {total}
         </span>
       </div>
       <SentenceCard
-        furigana={item.card.furigana}
-        english={item.card.english}
-        focusWord={item.card.focusWord}
-        glosses={item.card.glosses}
-        source={item.card.source}
-        audioUrl={item.card.audioUrl}
-        imageUrl={item.card.imageUrl}
+        furigana={card.furigana}
+        english={card.english}
+        focusWord={card.focusWord}
+        glosses={card.glosses}
+        source={card.source}
+        audioUrl={card.audioUrl}
+        imageUrl={card.imageUrl}
         revealed={revealed}
-        onReveal={() => setRevealed(true)}
-        onRate={handleRate}
-        rating={submit.isPending}
+        onReveal={onReveal}
+        onRate={onRate}
+        rating={submitting}
       />
     </main>
   );
