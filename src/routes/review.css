@@ -10,6 +10,12 @@
 .review-meta {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  gap: var(--s-3);
+}
+
+.review-error {
+  color: var(--accent);
 }
 
 .review-done {

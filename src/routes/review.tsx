@@ -26,10 +26,6 @@ function ReviewRoute() {
   const submit = useMutation({
     mutationFn: (input: { cardId: string; rating: ReviewRating }) =>
       getHibiClient().reviews.submit(input),
-    onSuccess: () => {
-      setRevealed(false);
-      setIndex((i) => i + 1);
-    },
     onSettled: () => queryClient.invalidateQueries({ queryKey: ["stats"] }),
   });
 
@@ -66,8 +62,11 @@ function ReviewRoute() {
   }
 
   const handleRate = (rating: ReviewRating) => {
-    if (submit.isPending) return;
+    // Fire-and-advance: optimistically move to next card before the API
+    // settles. Errors surface via submit.isError on the toolbar.
     submit.mutate({ cardId: item.card.id, rating });
+    setRevealed(false);
+    setIndex((i) => i + 1);
   };
 
   return (
@@ -77,8 +76,9 @@ function ReviewRoute() {
       revealed={revealed}
       onReveal={() => setRevealed(true)}
       onRate={handleRate}
-      submitting={submit.isPending}
+      submitting={false}
       card={item.card}
+      lastError={submit.isError ? String(submit.error) : null}
     />
   );
 }
@@ -91,6 +91,7 @@ interface SessionProps {
   onRate: (r: ReviewRating) => void;
   submitting: boolean;
   card: Card;
+  lastError: string | null;
 }
 
 function ReviewSession({
@@ -101,6 +102,7 @@ function ReviewSession({
   onRate,
   submitting,
   card,
+  lastError,
 }: SessionProps) {
   const onShortcut = useCallback(
     (event: KeyboardEvent) => {
@@ -128,6 +130,9 @@ function ReviewSession({
         <span className="meta">
           {index + 1} / {total}
         </span>
+        {lastError ? (
+          <span className="meta review-error">last submit failed: {lastError}</span>
+        ) : null}
       </div>
       <SentenceCard
         furigana={card.furigana}
