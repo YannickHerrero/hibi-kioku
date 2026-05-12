@@ -2,11 +2,10 @@ import { Link } from "@tanstack/react-router";
 import "./Header.css";
 
 const NAV: ReadonlyArray<{
-  to: "/" | "/review" | "/library" | "/stats" | "/settings";
+  to: "/" | "/library" | "/stats" | "/settings";
   label: string;
 }> = [
   { to: "/", label: "Home" },
-  { to: "/review", label: "Review" },
   { to: "/library", label: "Library" },
   { to: "/stats", label: "Stats" },
   { to: "/settings", label: "Settings" },
