@@ -28,3 +28,6 @@ pnpm-debug.log*
 
 # TanStack Router generated route tree
 src/routeTree.gen.ts
+
+# TS incremental build cache
+*.tsbuildinfo
