@@ -63,7 +63,7 @@ public/
 
 ## Hibi API requirements
 
-This app needs `hibi-client@^0.4.0` (search/sort + signed media URLs in card responses). During monorepo development, link via `file:../hibi/packages/api-client`; switch to a published `^0.4.0` before deploying to Vercel.
+This app uses `hibi-client@^0.4.0` (search/sort on `cards.list`, signed `audioUrl`/`imageUrl` on card responses). Bumping the floor here means updating both this dep and the schema-shaped UI that consumes those fields.
 
 ## Commit style
 

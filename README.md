@@ -57,9 +57,7 @@ Sign in by pasting a Hibi API key into Settings (generated in the [Hibi portal](
 
 ## Deploying to Vercel
 
-`vercel.json` sets up SPA rewrites so deep links work. The bundle is a static site, no edge functions needed.
-
-> **Before the first deploy**, switch the `hibi-client` dependency from the local `file:` link to a published version (`^0.4.0` once published). Vercel cannot install relative-path dependencies.
+`vercel.json` sets up SPA rewrites so deep links work. The bundle is a static site, no edge functions needed. The published `hibi-client@^0.4.0` is fetched from npm at install time, so no monorepo linkage is required.
 
 ## Conventions
 
