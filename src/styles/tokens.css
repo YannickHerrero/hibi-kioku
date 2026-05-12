@@ -1,0 +1,97 @@
+:root {
+  /* Type scale */
+  --t-display-xl: 72px;
+  --t-display-lg: 44px;
+  --t-display-md: 32px;
+  --t-display-sm: 24px;
+  --t-body: 17px;
+  --t-body-sm: 15px;
+  --t-meta: 13px;
+  --t-mono-md: 13px;
+  --t-mono-sm: 11px;
+  --t-mono-xs: 10px;
+  --t-mono-xxs: 9px;
+
+  /* Spacing — 4px base, named */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 22px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+
+  /* Radii — editorial = mostly 0 */
+  --r-0: 0px;
+  --r-sm: 2px;
+  --r-md: 8px;
+  --r-pill: 999px;
+
+  /* Tracking (letter-spacing) */
+  --track-tight: -0.03em;
+  --track-body: -0.01em;
+  --track-mono: 0.18em;
+  --track-mono-wide: 0.22em;
+
+  /* Layout */
+  --gutter: 22px;
+  --max-width: 1100px;
+}
+
+/* === Type primitives === */
+.display {
+  font-family: "Newsreader", Georgia, serif;
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: var(--track-tight);
+}
+.display.italic {
+  font-style: italic;
+}
+.serif {
+  font-family: "Newsreader", Georgia, serif;
+  line-height: 1.35;
+}
+.serif.italic {
+  font-style: italic;
+}
+.sans {
+  font-family: "Geist", system-ui, sans-serif;
+  line-height: 1.45;
+}
+.mono {
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+.label {
+  font-family: "Geist Mono", monospace;
+  font-size: var(--t-mono-xs);
+  letter-spacing: var(--track-mono-wide);
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.meta {
+  font-family: "Geist Mono", monospace;
+  font-size: var(--t-mono-sm);
+  color: var(--ink-soft);
+  letter-spacing: var(--track-mono);
+  text-transform: uppercase;
+}
+
+/* === Rules (hairlines) === */
+.rule {
+  height: 1px;
+  background: var(--ink);
+  border: 0;
+}
+.rule-soft {
+  height: 1px;
+  background: var(--rule-soft);
+  border: 0;
+}
+.rule-double {
+  height: 4px;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
