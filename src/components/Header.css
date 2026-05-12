@@ -1,0 +1,55 @@
+.kio-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--s-3) var(--gutter);
+  border-bottom: 1px solid var(--ink);
+  background: var(--paper);
+  gap: var(--s-4);
+}
+
+.kio-brand {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-3);
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.kio-brand .serif {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.kio-brand-name {
+  color: var(--ink-soft);
+}
+
+.kio-nav {
+  display: flex;
+  gap: var(--s-4);
+  flex-wrap: wrap;
+}
+
+.kio-nav-link {
+  font-family: "Geist Mono", monospace;
+  font-size: var(--t-mono-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--track-mono);
+  text-decoration: none;
+  color: var(--ink-soft);
+  padding: 6px 0;
+  border-bottom: 1px solid transparent;
+  transition:
+    color 120ms ease,
+    border-color 120ms ease;
+}
+
+.kio-nav-link:hover {
+  color: var(--ink);
+}
+
+.kio-nav-link.is-active {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
