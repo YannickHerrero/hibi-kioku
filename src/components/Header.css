@@ -14,6 +14,7 @@
   gap: var(--s-3);
   text-decoration: none;
   color: var(--ink);
+  flex-shrink: 0;
 }
 
 .kio-brand .serif {
@@ -28,7 +29,14 @@
 .kio-nav {
   display: flex;
   gap: var(--s-4);
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.kio-nav::-webkit-scrollbar {
+  display: none;
 }
 
 .kio-nav-link {
@@ -43,6 +51,7 @@
   transition:
     color 120ms ease,
     border-color 120ms ease;
+  white-space: nowrap;
 }
 
 .kio-nav-link:hover {
@@ -52,4 +61,24 @@
 .kio-nav-link.is-active {
   color: var(--ink);
   border-bottom-color: var(--ink);
+}
+
+@media (max-width: 640px) {
+  .kio-header {
+    padding: var(--s-2) var(--s-3);
+    gap: var(--s-3);
+  }
+  .kio-brand .serif {
+    font-size: 20px;
+  }
+  .kio-brand-name {
+    display: none;
+  }
+  .kio-nav {
+    gap: var(--s-3);
+  }
+  .kio-nav-link {
+    font-size: var(--t-mono-xxs);
+    letter-spacing: 0.15em;
+  }
 }
