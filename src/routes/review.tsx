@@ -7,6 +7,7 @@ import { requireApiKey } from "../lib/apiKey.ts";
 import { getHibiClient } from "../lib/hibiClient.ts";
 import { useKeyboardShortcut } from "../lib/keyboard.ts";
 import { dueCardsQueryOptions } from "../lib/queries.ts";
+import { useSessionTracking } from "../lib/sessions.ts";
 import "./review.css";
 
 export const Route = createFileRoute("/review")({
@@ -19,6 +20,7 @@ export const Route = createFileRoute("/review")({
 
 function ReviewRoute() {
   const queryClient = useQueryClient();
+  useSessionTracking("review");
   const due = useQuery(dueCardsQueryOptions(50));
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
