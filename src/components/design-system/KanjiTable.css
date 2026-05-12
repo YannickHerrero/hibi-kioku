@@ -1,0 +1,53 @@
+.kt {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Geist", system-ui, sans-serif;
+  font-size: var(--t-body-sm);
+}
+
+.kt thead th {
+  font-family: "Geist Mono", monospace;
+  font-size: var(--t-mono-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--track-mono);
+  color: var(--ink-soft);
+  text-align: left;
+  padding: var(--s-2) var(--s-3);
+  border-bottom: 1px solid var(--ink);
+  font-weight: 400;
+}
+
+.kt thead .kt-h-glyph {
+  width: 0;
+}
+
+.kt thead .kt-h-level {
+  width: 0;
+  text-align: right;
+}
+
+.kt tbody td {
+  padding: var(--s-3);
+  border-bottom: 1px solid var(--rule-soft);
+  vertical-align: middle;
+}
+
+.kt tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.kt-glyph {
+  font-size: 28px;
+  padding-right: 14px;
+  color: var(--ink);
+}
+
+.kt-meaning {
+  color: var(--ink);
+}
+
+.kt-level {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-soft);
+}
