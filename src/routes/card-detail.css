@@ -1,0 +1,92 @@
+.cd-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--s-7) var(--gutter);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.cd-back {
+  text-decoration: none;
+  color: var(--ink-soft);
+  align-self: flex-start;
+}
+
+.cd-back:hover {
+  color: var(--ink);
+}
+
+.cd-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-3);
+}
+
+.cd-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.cd-eyebrow {
+  display: block;
+}
+
+.cd-meaning {
+  font-size: 18px;
+  margin: 0;
+}
+
+.cd-glosses {
+  margin: 0;
+  padding-left: var(--s-4);
+  font-family: "Geist", system-ui, sans-serif;
+  font-size: var(--t-body-sm);
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.cd-grammar {
+  margin: 0;
+  font-size: var(--t-body-sm);
+  color: var(--ink-soft);
+}
+
+.cd-image {
+  border: 1px solid var(--rule-soft);
+  background: var(--paper-alt);
+  padding: var(--s-3);
+}
+
+.cd-image img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.cd-tags {
+  display: flex;
+  gap: var(--s-2);
+  flex-wrap: wrap;
+}
+
+.cd-tag {
+  font-family: "Geist Mono", monospace;
+  font-size: var(--t-mono-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--track-mono);
+  padding: 4px 10px;
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--rule-soft);
+  text-decoration: none;
+  transition:
+    background 120ms ease,
+    border-color 120ms ease;
+}
+
+.cd-tag:hover {
+  border-color: var(--ink);
+}
