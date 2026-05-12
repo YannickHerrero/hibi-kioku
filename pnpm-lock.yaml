@@ -18,8 +18,8 @@ importers:
         specifier: ^1.169.2
         version: 1.169.2(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       hibi-client:
-        specifier: file:../hibi/packages/api-client
-        version: file:../hibi/packages/api-client
+        specifier: ^0.4.0
+        version: 0.4.0
       react:
         specifier: 19.2.0
         version: 19.2.0
@@ -815,8 +815,8 @@ packages:
     peerDependencies:
       csstype: ^3.0.10
 
-  hibi-client@file:../hibi/packages/api-client:
-    resolution: {directory: ../hibi/packages/api-client, type: directory}
+  hibi-client@0.4.0:
+    resolution: {integrity: sha512-J1heNgR8HdcRik4wycsbyh8iKk9EIl5OvCbkuL7ZzMmGwUni9uXGDesDjSIyk8v5bMLaEAmWdfsB5pfjFsD6UQ==}
 
   is-binary-path@2.1.0:
     resolution: {integrity: sha512-ZMERYes6pDydyuGidse7OsHxtbI7WVeUEozgR/g7rd0xUimYNlvZRE/K2MgZTjWy725IfelLeVcEM97mmtRGXw==}
@@ -1756,7 +1756,7 @@ snapshots:
     dependencies:
       csstype: 3.2.3
 
-  hibi-client@file:../hibi/packages/api-client:
+  hibi-client@0.4.0:
     dependencies:
       zod: 4.4.3
 
