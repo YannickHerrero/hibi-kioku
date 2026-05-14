@@ -1,5 +1,6 @@
 .seg {
   display: inline-flex;
+  align-self: flex-start;
   border: 1px solid var(--ink);
   border-radius: var(--r-0);
   padding: 0;
